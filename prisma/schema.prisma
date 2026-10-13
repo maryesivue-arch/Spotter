@@ -1,0 +1,455 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["postgresqlExtensions"]
+}
+
+datasource db {
+  provider   = "postgresql"
+  url        = env("DATABASE_URL")
+  directUrl  = env("DIRECT_URL")
+  extensions = [vector]
+}
+
+enum Tier {
+  BASIC
+  PREMIUM
+}
+
+enum StaffRole {
+  STAFF
+  OWNER
+}
+
+enum CardStatus {
+  DRAFT
+  PENDING_APPROVAL
+  APPROVED
+  REJECTED
+  ARCHIVED
+}
+
+enum CardCategory {
+  TIMETABLE
+  PRICES
+  RULES
+  ACCESS_HOURS
+  GUEST_POLICY
+  PAUSE_CANCEL
+  TRAINING_PLAN
+  TRAINER_GUIDANCE
+}
+
+enum LedgerKind {
+  OPENING_BALANCE
+  CHARGE
+  PAYMENT_MANUAL
+  PAYMENT_GATEWAY
+  CORRECTION
+}
+
+enum PaymentMethod {
+  CASH
+  TRANSFER
+  POS
+}
+
+enum PaymentPurpose {
+  RENEWAL
+  BALANCE
+}
+
+enum PaymentStatus {
+  PENDING
+  SUCCESS
+  FAILED
+  ABANDONED
+}
+
+enum CorrectionStatus {
+  PROPOSED
+  APPROVED
+  REJECTED
+}
+
+enum RouteTaken {
+  SHARED_CARD
+  PRIVATE_INTENT
+  RISKY
+  SILENT
+  RATE_LIMITED
+  WORD_SEARCH
+}
+
+enum PrivateIntent {
+  ATTENDANCE_COUNT
+  ATTENDANCE_DATES
+  EXPIRY
+  TIER
+  BALANCE
+  PAYMENT_HISTORY
+}
+
+enum ExampleKind {
+  PRIVATE_INTENT
+  RISKY
+}
+
+enum VectorKind {
+  CARD_BODY
+  CARD_SAMPLE_QUESTION
+  INTENT_EXAMPLE
+}
+
+// One row only (id = 1). One gym per deployment. [A-32]
+model GymSetting {
+  id                     Int       @id @default(1)
+  gymName                String
+  fallbackName           String
+  fallbackWhatsapp       String // digits with country code, no plus sign
+  deskHoursText          String
+  basicPriceKobo         Int
+  premiumPriceKobo       Int
+  renewalDays            Int       @default(30)
+  graceDays              Int       @default(7)
+  launchDate             DateTime  @db.Date
+  ledgerConfirmedThrough DateTime? @db.Date
+  similarityThreshold    Float     @default(0.72)
+  tieMargin              Float     @default(0.03)
+  memberDailyQuestionCap Int       @default(30)
+  gymDailyEmbedCap       Int       @default(800)
+  embeddingModel         String    @default("gemini-embedding-001")
+  embeddingDims          Int       @default(768)
+  updatedAt              DateTime  @updatedAt
+}
+
+model StaffUser {
+  id           String    @id @default(cuid())
+  email        String    @unique
+  name         String
+  passwordHash String
+  role         StaffRole
+  active       Boolean   @default(true)
+  failedLogins Int       @default(0)
+  lockedUntil  DateTime?
+  createdAt    DateTime  @default(now())
+  sessions     Session[]
+  members      Member[]
+}
+
+model Member {
+  id            String    @id @default(cuid())
+  memberNumber  Int       @unique @default(autoincrement())
+  name          String
+  tier          Tier
+  expiresAt     DateTime  @db.Date
+  pinHash       String?
+  failedPins    Int       @default(0)
+  lockedUntil   DateTime?
+  deactivatedAt DateTime?
+  createdById   String
+  createdBy     StaffUser @relation(fields: [createdById], references: [id])
+  createdAt     DateTime  @default(now())
+
+  joinCodes   JoinCode[]
+  sessions    Session[]
+  consents    ConsentRecord[]
+  checkIns    CheckIn[]
+  ledger      LedgerEntry[]
+  corrections LedgerCorrection[]
+  payments    Payment[]
+  renewals    Renewal[]
+  tierChanges TierChange[]
+  questions   QuestionLog[]
+  reports     WrongReport[]
+  events      AppEvent[]
+
+  @@index([expiresAt])
+}
+
+model JoinCode {
+  id          String    @id @default(cuid())
+  memberId    String
+  member      Member    @relation(fields: [memberId], references: [id])
+  codeHash    String    @unique
+  expiresAt   DateTime
+  usedAt      DateTime?
+  createdById String // StaffUser.id
+  createdAt   DateTime  @default(now())
+
+  @@index([memberId])
+}
+
+// Exactly one of memberId or staffUserId is set (CHECK constraint added in SQL).
+model Session {
+  id          String     @id @default(cuid())
+  tokenHash   String     @unique
+  memberId    String?
+  member      Member?    @relation(fields: [memberId], references: [id])
+  staffUserId String?
+  staffUser   StaffUser? @relation(fields: [staffUserId], references: [id])
+  expiresAt   DateTime
+  revokedAt   DateTime?
+  userAgent   String?
+  createdAt   DateTime   @default(now())
+}
+
+model LoginAttempt {
+  id        String   @id @default(cuid())
+  subject   String // "member:123" or "staff:email"
+  ip        String
+  success   Boolean
+  createdAt DateTime @default(now())
+
+  @@index([subject, createdAt])
+  @@index([ip, createdAt])
+}
+
+model ConsentRecord {
+  id         String   @id @default(cuid())
+  memberId   String
+  member     Member   @relation(fields: [memberId], references: [id])
+  version    String
+  acceptedAt DateTime @default(now())
+
+  @@index([memberId])
+}
+
+model DailyCode {
+  localDate DateTime @id @db.Date // Lagos day, made 14 days ahead
+  code      String
+  createdAt DateTime @default(now())
+}
+
+model CheckIn {
+  id         String   @id @default(cuid())
+  clientId   String   @unique // uuid made on the phone
+  memberId   String
+  member     Member   @relation(fields: [memberId], references: [id])
+  localDate  DateTime @db.Date
+  clientTime DateTime
+  receivedAt DateTime @default(now())
+  sentLate   Boolean  @default(false)
+
+  @@unique([memberId, localDate])
+  @@index([localDate])
+}
+
+// Append only. Updates and deletes are blocked by a trigger.
+model LedgerEntry {
+  id           String         @id @default(cuid())
+  memberId     String
+  member       Member         @relation(fields: [memberId], references: [id])
+  kind         LedgerKind
+  amountKobo   Int // charge positive, payment negative
+  occurredAt   DateTime
+  sourceNote   String? // e.g. "ledger page 12"
+  method       PaymentMethod?
+  externalRef  String? // receipt book number, transfer reference or POS slip number
+  paymentId    String?        @unique
+  correctsId   String?
+  reason       String?
+  createdById  String? // StaffUser.id, null for gateway entries
+  approvedById String? // StaffUser.id, for corrections
+  createdAt    DateTime       @default(now())
+
+  @@unique([method, externalRef])
+  @@index([memberId, occurredAt])
+}
+
+model LedgerCorrection {
+  id               String           @id @default(cuid())
+  memberId         String
+  member           Member           @relation(fields: [memberId], references: [id])
+  amountKobo       Int
+  reason           String
+  proposedById     String
+  status           CorrectionStatus @default(PROPOSED)
+  decidedById      String?
+  decidedAt        DateTime?
+  resultingEntryId String?
+  createdAt        DateTime         @default(now())
+}
+
+model Payment {
+  id            String         @id @default(cuid())
+  reference     String         @unique
+  memberId      String
+  member        Member         @relation(fields: [memberId], references: [id])
+  purpose       PaymentPurpose
+  amountKobo    Int
+  status        PaymentStatus  @default(PENDING)
+  flagged       Boolean        @default(false)
+  initializedAt DateTime       @default(now())
+  confirmedAt   DateTime?
+  lastCheckedAt DateTime?
+
+  @@index([status, initializedAt])
+  @@index([memberId])
+}
+
+model WebhookEvent {
+  id          String    @id @default(cuid())
+  eventKey    String    @unique
+  event       String
+  reference   String?
+  payload     Json
+  receivedAt  DateTime  @default(now())
+  processedAt DateTime?
+  outcome     String?
+}
+
+model Renewal {
+  id                String   @id @default(cuid())
+  memberId          String
+  member            Member   @relation(fields: [memberId], references: [id])
+  previousExpiresAt DateTime @db.Date
+  newExpiresAt      DateTime @db.Date
+  paidAt            DateTime
+  daysLate          Int
+  viaGateway        Boolean
+  ledgerEntryId     String   @unique
+
+  @@index([memberId])
+}
+
+model TierChange {
+  id          String   @id @default(cuid())
+  memberId    String
+  member      Member   @relation(fields: [memberId], references: [id])
+  fromTier    Tier
+  toTier      Tier
+  changedAt   DateTime @default(now())
+  changedById String?
+}
+
+// Each edit makes a new row in the same group. One APPROVED row per group
+// (partial unique index added in SQL).
+model SharedCard {
+  id                String       @id @default(cuid())
+  groupId           String
+  version           Int
+  title             String
+  body              String
+  category          CardCategory
+  tierRequired      Tier         @default(BASIC)
+  visibleWhenLapsed Boolean      @default(false)
+  status            CardStatus   @default(DRAFT)
+  needsEmbedding    Boolean      @default(false)
+  confirmedOn       DateTime?    @db.Date
+  reviewBy          DateTime?    @db.Date
+  draftedById       String
+  approvedById      String?
+  approvedAt        DateTime?
+  createdAt         DateTime     @default(now())
+
+  samples CardSampleQuestion[]
+  vectors SearchVector[]
+
+  @@unique([groupId, version])
+  @@index([status, tierRequired])
+}
+
+model CardSampleQuestion {
+  id     String     @id @default(cuid())
+  cardId String
+  card   SharedCard @relation(fields: [cardId], references: [id], onDelete: Cascade)
+  text   String
+}
+
+// Public phrases written by staff. They contain no member data.
+model IntentExample {
+  id      String         @id @default(cuid())
+  kind    ExampleKind
+  intent  PrivateIntent? // set when kind = PRIVATE_INTENT
+  label   String? // set when kind = RISKY, e.g. "medical"
+  text    String
+  vectors SearchVector[]
+}
+
+model RiskyTerm {
+  id    String @id @default(cuid())
+  term  String @unique
+  label String
+}
+
+model PidginWord {
+  id      String @id @default(cuid())
+  pidgin  String @unique
+  english String
+}
+
+// The only table with a vector column. Links only to a card or an example.
+model SearchVector {
+  id              String                     @id @default(cuid())
+  kind            VectorKind
+  cardId          String?
+  card            SharedCard?                @relation(fields: [cardId], references: [id], onDelete: Cascade)
+  intentExampleId String?
+  intentExample   IntentExample?             @relation(fields: [intentExampleId], references: [id], onDelete: Cascade)
+  sourceText      String
+  model           String
+  dims            Int
+  embedding       Unsupported("vector(768)")
+  createdAt       DateTime                   @default(now())
+
+  @@index([cardId])
+  @@index([model])
+}
+
+model QuestionLog {
+  id              String         @id @default(cuid())
+  memberId        String
+  member          Member         @relation(fields: [memberId], references: [id])
+  askedAt         DateTime       @default(now())
+  textRedacted    String
+  route           RouteTaken
+  matchedCardId   String?
+  matchedIntent   PrivateIntent?
+  score           Float?
+  secondScore     Float?
+  thresholdUsed   Float?
+  accessState     String // ACTIVE, GRACE or LAPSED at ask time
+  handoffTappedAt DateTime?
+  latencyMs       Int?
+
+  @@index([memberId, askedAt])
+  @@index([route, askedAt])
+}
+
+model WrongReport {
+  id            String    @id @default(cuid())
+  memberId      String
+  member        Member    @relation(fields: [memberId], references: [id])
+  questionLogId String?
+  answerShown   String
+  recordRef     String // card id or "ledger:<entry ids>"
+  createdAt     DateTime  @default(now())
+  reviewedAt    DateTime?
+  reviewedById  String?
+  note          String?
+}
+
+model AppEvent {
+  id        String   @id @default(cuid())
+  memberId  String?
+  member    Member?  @relation(fields: [memberId], references: [id])
+  type      String // APP_OPEN, CHECKIN_REJECTED, PAYMENT_ABANDONED, ...
+  meta      Json?
+  createdAt DateTime @default(now())
+
+  @@index([type, createdAt])
+  @@index([memberId, createdAt])
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  actorId   String // StaffUser.id
+  action    String
+  entity    String
+  entityId  String
+  before    Json?
+  after     Json?
+  createdAt DateTime @default(now())
+
+  @@index([entity, entityId])
+}

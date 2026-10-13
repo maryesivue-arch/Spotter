@@ -1,0 +1,33 @@
+{
+  "extends": ["next/core-web-vitals"],
+  "rules": {
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "@prisma/client",
+            "message": "Only code in src/server/db and src/server/dal may import the Prisma client."
+          }
+        ],
+        "patterns": [
+          {
+            "group": ["@prisma/client*", "**/server/db*"],
+            "message": "Only code in src/server/db and src/server/dal may import the Prisma client."
+          }
+        ]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "src/server/db/**/*",
+        "src/server/dal/**/*"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ]
+}

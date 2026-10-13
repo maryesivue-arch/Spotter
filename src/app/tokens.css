@@ -1,0 +1,984 @@
+/**
+ * ==============================================================================
+ * Spotter Design System - CSS Custom Properties
+ * ==============================================================================
+ * 
+ * AUTOMATICALLY GENERATED FILE - DO NOT EDIT DIRECTLY.
+ * Source of Truth: design-tokens.tokens.json
+ * Generated At: 2026-10-12T04:59:08.649Z
+ * 
+ * ------------------------------------------------------------------------------
+ * ARCHITECTURAL DESIGN SYSTEM RULES:
+ * ------------------------------------------------------------------------------
+ * 1. COLOR ROLES (Semantic Tokens):
+ *    - MUST be used directly in UI implementations (buttons, cards, text, etc.).
+ *    - Example: color: var(--color-on-surface);
+ *    - Example: background-color: var(--color-surface);
+ *    - Example: border-color: var(--color-outline);
+ *    - Example: background-color: var(--color-primary);
+ *
+ * 2. PRIMITIVE COLORS (Foundational Palettes):
+ *    - MUST NOT be used directly on UI components.
+ *    - Primitives exist solely as the foundational palette scales from which
+ *      Color Roles draw their values.
+ *    - Using Color Roles ensures seamless theming and high-contrast adaptations.
+ * ==============================================================================
+ */
+
+:root {
+  /* ==========================================================================
+     1. PRIMITIVE COLORS (FOUNDATIONAL PALETTES)
+     WARNING: Do NOT use these variables directly in UI components.
+     Use the semantic Color Roles defined in Section 2 below.
+     ========================================================================== */
+  /* Palette: primary */
+  --primitive-color-primary-0: #000000ff;
+  --primitive-color-primary-0-rgb: 0, 0, 0;
+  --primitives-color-palletes-primary-primary0: var(--primitive-color-primary-0);
+  --primitive-color-primary-10: #000e46ff;
+  --primitive-color-primary-10-rgb: 0, 14, 70;
+  --primitives-color-palletes-primary-primary10: var(--primitive-color-primary-10);
+  --primitive-color-primary-20: #001f78ff;
+  --primitive-color-primary-20-rgb: 0, 31, 120;
+  --primitives-color-palletes-primary-primary20: var(--primitive-color-primary-20);
+  --primitive-color-primary-30: #0031acff;
+  --primitive-color-primary-30-rgb: 0, 49, 172;
+  --primitives-color-palletes-primary-primary30: var(--primitive-color-primary-30);
+  --primitive-color-primary-40: #0044e3ff;
+  --primitive-color-primary-40-rgb: 0, 68, 227;
+  --primitives-color-palletes-primary-primary40: var(--primitive-color-primary-40);
+  --primitive-color-primary-50: #3168ffff;
+  --primitive-color-primary-50-rgb: 49, 104, 255;
+  --primitives-color-palletes-primary-primary50: var(--primitive-color-primary-50);
+  --primitive-color-primary-60: #6089ffff;
+  --primitive-color-primary-60-rgb: 96, 137, 255;
+  --primitives-color-palletes-primary-primary60: var(--primitive-color-primary-60);
+  --primitive-color-primary-70: #8ca8ffff;
+  --primitive-color-primary-70-rgb: 140, 168, 255;
+  --primitives-color-palletes-primary-primary70: var(--primitive-color-primary-70);
+  --primitive-color-primary-80: #b4c6ffff;
+  --primitive-color-primary-80-rgb: 180, 198, 255;
+  --primitives-color-palletes-primary-primary80: var(--primitive-color-primary-80);
+  --primitive-color-primary-90: #dce4ffff;
+  --primitive-color-primary-90-rgb: 220, 228, 255;
+  --primitives-color-palletes-primary-primary90: var(--primitive-color-primary-90);
+  --primitive-color-primary-95: #f0f3ffff;
+  --primitive-color-primary-95-rgb: 240, 243, 255;
+  --primitives-color-palletes-primary-primary95: var(--primitive-color-primary-95);
+  --primitive-color-primary-98: #f9f9ffff;
+  --primitive-color-primary-98-rgb: 249, 249, 255;
+  --primitives-color-palletes-primary-primary98: var(--primitive-color-primary-98);
+  --primitive-color-primary-99: #fefeffff;
+  --primitive-color-primary-99-rgb: 254, 254, 255;
+  --primitives-color-palletes-primary-primary99: var(--primitive-color-primary-99);
+  --primitive-color-primary-100: #ffffffff;
+  --primitive-color-primary-100-rgb: 255, 255, 255;
+  --primitives-color-palletes-primary-primary100: var(--primitive-color-primary-100);
+
+  /* Palette: secondary */
+  --primitive-color-secondary-0: #000000ff;
+  --primitive-color-secondary-0-rgb: 0, 0, 0;
+  --primitives-color-palletes-secondary-secondary0: var(--primitive-color-secondary-0);
+  --primitive-color-secondary-10: #001132ff;
+  --primitive-color-secondary-10-rgb: 0, 17, 50;
+  --primitives-color-palletes-secondary-secondary10: var(--primitive-color-secondary-10);
+  --primitive-color-secondary-20: #002256ff;
+  --primitive-color-secondary-20-rgb: 0, 34, 86;
+  --primitives-color-palletes-secondary-secondary20: var(--primitive-color-secondary-20);
+  --primitive-color-secondary-30: #0c3878ff;
+  --primitive-color-secondary-30-rgb: 12, 56, 120;
+  --primitives-color-palletes-secondary-secondary30: var(--primitive-color-secondary-30);
+  --primitive-color-secondary-40: #294f91ff;
+  --primitive-color-secondary-40-rgb: 41, 79, 145;
+  --primitives-color-palletes-secondary-secondary40: var(--primitive-color-secondary-40);
+  --primitive-color-secondary-50: #4468abff;
+  --primitive-color-secondary-50-rgb: 68, 104, 171;
+  --primitives-color-palletes-secondary-secondary50: var(--primitive-color-secondary-50);
+  --primitive-color-secondary-60: #5f81c4ff;
+  --primitive-color-secondary-60-rgb: 95, 129, 196;
+  --primitives-color-palletes-secondary-secondary60: var(--primitive-color-secondary-60);
+  --primitive-color-secondary-70: #8dabeaff;
+  --primitive-color-secondary-70-rgb: 141, 171, 234;
+  --primitives-color-palletes-secondary-secondary70: var(--primitive-color-secondary-70);
+  --primitive-color-secondary-80: #aac7ffff;
+  --primitive-color-secondary-80-rgb: 170, 199, 255;
+  --primitives-color-palletes-secondary-secondary80: var(--primitive-color-secondary-80);
+  --primitive-color-secondary-90: #d6e3ffff;
+  --primitive-color-secondary-90-rgb: 214, 227, 255;
+  --primitives-color-palletes-secondary-secondary90: var(--primitive-color-secondary-90);
+  --primitive-color-secondary-95: #ecf0ffff;
+  --primitive-color-secondary-95-rgb: 236, 240, 255;
+  --primitives-color-palletes-secondary-secondary95: var(--primitive-color-secondary-95);
+  --primitive-color-secondary-98: #f7f8ffff;
+  --primitive-color-secondary-98-rgb: 247, 248, 255;
+  --primitives-color-palletes-secondary-secondary98: var(--primitive-color-secondary-98);
+  --primitive-color-secondary-99: #fcfcffff;
+  --primitive-color-secondary-99-rgb: 252, 252, 255;
+  --primitives-color-palletes-secondary-secondary99: var(--primitive-color-secondary-99);
+  --primitive-color-secondary-100: #ffffffff;
+  --primitive-color-secondary-100-rgb: 255, 255, 255;
+  --primitives-color-palletes-secondary-secondary100: var(--primitive-color-secondary-100);
+
+  /* Palette: tertiary */
+  --primitive-color-tertiary-0: #000000ff;
+  --primitive-color-tertiary-0-rgb: 0, 0, 0;
+  --primitives-color-palletes-tertiary-tertiary0: var(--primitive-color-tertiary-0);
+  --primitive-color-tertiary-10: #17243dff;
+  --primitive-color-tertiary-10-rgb: 23, 36, 61;
+  --primitives-color-palletes-tertiary-tertiary10: var(--primitive-color-tertiary-10);
+  --primitive-color-tertiary-20: #2c3a55ff;
+  --primitive-color-tertiary-20-rgb: 44, 58, 85;
+  --primitives-color-palletes-tertiary-tertiary20: var(--primitive-color-tertiary-20);
+  --primitive-color-tertiary-30: #42506dff;
+  --primitive-color-tertiary-30-rgb: 66, 80, 109;
+  --primitives-color-palletes-tertiary-tertiary30: var(--primitive-color-tertiary-30);
+  --primitive-color-tertiary-40: #5a6886ff;
+  --primitive-color-tertiary-40-rgb: 90, 104, 134;
+  --primitives-color-palletes-tertiary-tertiary40: var(--primitive-color-tertiary-40);
+  --primitive-color-tertiary-50: #7382a0ff;
+  --primitive-color-tertiary-50-rgb: 115, 130, 160;
+  --primitives-color-palletes-tertiary-tertiary50: var(--primitive-color-tertiary-50);
+  --primitive-color-tertiary-60: #8d9cbbff;
+  --primitive-color-tertiary-60-rgb: 141, 156, 187;
+  --primitives-color-palletes-tertiary-tertiary60: var(--primitive-color-tertiary-60);
+  --primitive-color-tertiary-70: #a6abc0ff;
+  --primitive-color-tertiary-70-rgb: 166, 171, 192;
+  --primitives-color-palletes-tertiary-tertiary70: var(--primitive-color-tertiary-70);
+  --primitive-color-tertiary-80: #c1c6dbff;
+  --primitive-color-tertiary-80-rgb: 193, 198, 219;
+  --primitives-color-palletes-tertiary-tertiary80: var(--primitive-color-tertiary-80);
+  --primitive-color-tertiary-90: #dee2f8ff;
+  --primitive-color-tertiary-90-rgb: 222, 226, 248;
+  --primitives-color-palletes-tertiary-tertiary90: var(--primitive-color-tertiary-90);
+  --primitive-color-tertiary-95: #edf0faff;
+  --primitive-color-tertiary-95-rgb: 237, 240, 250;
+  --primitives-color-palletes-tertiary-tertiary95: var(--primitive-color-tertiary-95);
+  --primitive-color-tertiary-98: #f7f8ffff;
+  --primitive-color-tertiary-98-rgb: 247, 248, 255;
+  --primitives-color-palletes-tertiary-tertiary98: var(--primitive-color-tertiary-98);
+  --primitive-color-tertiary-99: #fcfcffff;
+  --primitive-color-tertiary-99-rgb: 252, 252, 255;
+  --primitives-color-palletes-tertiary-tertiary99: var(--primitive-color-tertiary-99);
+  --primitive-color-tertiary-100: #ffffffff;
+  --primitive-color-tertiary-100-rgb: 255, 255, 255;
+  --primitives-color-palletes-tertiary-tertiary100: var(--primitive-color-tertiary-100);
+
+  /* Palette: neutral */
+  --primitive-color-neutral-0: #000000ff;
+  --primitive-color-neutral-0-rgb: 0, 0, 0;
+  --primitives-color-palletes-neutral-neutral0: var(--primitive-color-neutral-0);
+  --primitive-color-neutral-4: #0a0c10ff;
+  --primitive-color-neutral-4-rgb: 10, 12, 16;
+  --primitives-color-palletes-neutral-neutral4: var(--primitive-color-neutral-4);
+  --primitive-color-neutral-6: #0e1014ff;
+  --primitive-color-neutral-6-rgb: 14, 16, 20;
+  --primitives-color-palletes-neutral-neutral6: var(--primitive-color-neutral-6);
+  --primitive-color-neutral-10: #191b1fff;
+  --primitive-color-neutral-10-rgb: 25, 27, 31;
+  --primitives-color-palletes-neutral-neutral10: var(--primitive-color-neutral-10);
+  --primitive-color-neutral-12: #1d1f23ff;
+  --primitive-color-neutral-12-rgb: 29, 31, 35;
+  --primitives-color-palletes-neutral-neutral12: var(--primitive-color-neutral-12);
+  --primitive-color-neutral-17: #26282cff;
+  --primitive-color-neutral-17-rgb: 38, 40, 44;
+  --primitives-color-palletes-neutral-neutral17: var(--primitive-color-neutral-17);
+  --primitive-color-neutral-20: #2e3034ff;
+  --primitive-color-neutral-20-rgb: 46, 48, 52;
+  --primitives-color-palletes-neutral-neutral20: var(--primitive-color-neutral-20);
+  --primitive-color-neutral-22: #323438ff;
+  --primitive-color-neutral-22-rgb: 50, 52, 56;
+  --primitives-color-palletes-neutral-neutral22: var(--primitive-color-neutral-22);
+  --primitive-color-neutral-24: #36383cff;
+  --primitive-color-neutral-24-rgb: 54, 56, 60;
+  --primitives-color-palletes-neutral-neutral24: var(--primitive-color-neutral-24);
+  --primitive-color-neutral-30: #44464aff;
+  --primitive-color-neutral-30-rgb: 68, 70, 74;
+  --primitives-color-palletes-neutral-neutral30: var(--primitive-color-neutral-30);
+  --primitive-color-neutral-40: #5c5e62ff;
+  --primitive-color-neutral-40-rgb: 92, 94, 98;
+  --primitives-color-palletes-neutral-neutral40: var(--primitive-color-neutral-40);
+  --primitive-color-neutral-50: #808286ff;
+  --primitive-color-neutral-50-rgb: 128, 130, 134;
+  --primitives-color-palletes-neutral-neutral50: var(--primitive-color-neutral-50);
+  --primitive-color-neutral-60: #8f9195ff;
+  --primitive-color-neutral-60-rgb: 143, 145, 149;
+  --primitives-color-palletes-neutral-neutral60: var(--primitive-color-neutral-60);
+  --primitive-color-neutral-70: #aaaaaeff;
+  --primitive-color-neutral-70-rgb: 170, 170, 174;
+  --primitives-color-palletes-neutral-neutral70: var(--primitive-color-neutral-70);
+  --primitive-color-neutral-80: #c6c6caff;
+  --primitive-color-neutral-80-rgb: 198, 198, 202;
+  --primitives-color-palletes-neutral-neutral80: var(--primitive-color-neutral-80);
+  --primitive-color-neutral-87: #d7d7dbff;
+  --primitive-color-neutral-87-rgb: 215, 215, 219;
+  --primitives-color-palletes-neutral-neutral87: var(--primitive-color-neutral-87);
+  --primitive-color-neutral-90: #e2e2e6ff;
+  --primitive-color-neutral-90-rgb: 226, 226, 230;
+  --primitives-color-palletes-neutral-neutral90: var(--primitive-color-neutral-90);
+  --primitive-color-neutral-92: #e5e5e9ff;
+  --primitive-color-neutral-92-rgb: 229, 229, 233;
+  --primitives-color-palletes-neutral-neutral92: var(--primitive-color-neutral-92);
+  --primitive-color-neutral-94: #ebecf0ff;
+  --primitive-color-neutral-94-rgb: 235, 236, 240;
+  --primitives-color-palletes-neutral-neutral94: var(--primitive-color-neutral-94);
+  --primitive-color-neutral-95: #f1f1f4ff;
+  --primitive-color-neutral-95-rgb: 241, 241, 244;
+  --primitives-color-palletes-neutral-neutral95: var(--primitive-color-neutral-95);
+  --primitive-color-neutral-96: #fafaf7ff;
+  --primitive-color-neutral-96-rgb: 250, 250, 247;
+  --primitives-color-palletes-neutral-neutral96: var(--primitive-color-neutral-96);
+  --primitive-color-neutral-98: #f9f9fcff;
+  --primitive-color-neutral-98-rgb: 249, 249, 252;
+  --primitives-color-palletes-neutral-neutral98: var(--primitive-color-neutral-98);
+  --primitive-color-neutral-99: #fcfcffff;
+  --primitive-color-neutral-99-rgb: 252, 252, 255;
+  --primitives-color-palletes-neutral-neutral99: var(--primitive-color-neutral-99);
+  --primitive-color-neutral-100: #ffffffff;
+  --primitive-color-neutral-100-rgb: 255, 255, 255;
+  --primitives-color-palletes-neutral-neutral100: var(--primitive-color-neutral-100);
+
+  /* Palette: neutral-variant */
+  --primitive-color-neutral-variant-0: #000000ff;
+  --primitive-color-neutral-variant-0-rgb: 0, 0, 0;
+  --primitives-color-palletes-neutral-variant-neutral-variant0: var(--primitive-color-neutral-variant-0);
+  --primitive-color-neutral-variant-4: #0a0e17ff;
+  --primitive-color-neutral-variant-4-rgb: 10, 14, 23;
+  --primitives-color-palletes-neutral-variant-neutral-variant4: var(--primitive-color-neutral-variant-4);
+  --primitive-color-neutral-variant-6: #0e121bff;
+  --primitive-color-neutral-variant-6-rgb: 14, 18, 27;
+  --primitives-color-palletes-neutral-variant-neutral-variant6: var(--primitive-color-neutral-variant-6);
+  --primitive-color-neutral-variant-10: #191d27ff;
+  --primitive-color-neutral-variant-10-rgb: 25, 29, 39;
+  --primitives-color-palletes-neutral-variant-neutral-variant10: var(--primitive-color-neutral-variant-10);
+  --primitive-color-neutral-variant-12: #1d212bff;
+  --primitive-color-neutral-variant-12-rgb: 29, 33, 43;
+  --primitives-color-palletes-neutral-variant-neutral-variant12: var(--primitive-color-neutral-variant-12);
+  --primitive-color-neutral-variant-17: #262a35ff;
+  --primitive-color-neutral-variant-17-rgb: 38, 42, 53;
+  --primitives-color-palletes-neutral-variant-neutral-variant17: var(--primitive-color-neutral-variant-17);
+  --primitive-color-neutral-variant-20: #2e323dff;
+  --primitive-color-neutral-variant-20-rgb: 46, 50, 61;
+  --primitives-color-palletes-neutral-variant-neutral-variant20: var(--primitive-color-neutral-variant-20);
+  --primitive-color-neutral-variant-22: #323641ff;
+  --primitive-color-neutral-variant-22-rgb: 50, 54, 65;
+  --primitives-color-palletes-neutral-variant-neutral-variant22: var(--primitive-color-neutral-variant-22);
+  --primitive-color-neutral-variant-24: #363a45ff;
+  --primitive-color-neutral-variant-24-rgb: 54, 58, 69;
+  --primitives-color-palletes-neutral-variant-neutral-variant24: var(--primitive-color-neutral-variant-24);
+  --primitive-color-neutral-variant-30: #444854ff;
+  --primitive-color-neutral-variant-30-rgb: 68, 72, 84;
+  --primitives-color-palletes-neutral-variant-neutral-variant30: var(--primitive-color-neutral-variant-30);
+  --primitive-color-neutral-variant-40: #5c606cff;
+  --primitive-color-neutral-variant-40-rgb: 92, 96, 108;
+  --primitives-color-palletes-neutral-variant-neutral-variant40: var(--primitive-color-neutral-variant-40);
+  --primitive-color-neutral-variant-50: #7d8291ff;
+  --primitive-color-neutral-variant-50-rgb: 125, 130, 145;
+  --primitives-color-palletes-neutral-variant-neutral-variant50: var(--primitive-color-neutral-variant-50);
+  --primitive-color-neutral-variant-60: #8f9098ff;
+  --primitive-color-neutral-variant-60-rgb: 143, 144, 152;
+  --primitives-color-palletes-neutral-variant-neutral-variant60: var(--primitive-color-neutral-variant-60);
+  --primitive-color-neutral-variant-70: #a9aab2ff;
+  --primitive-color-neutral-variant-70-rgb: 169, 170, 178;
+  --primitives-color-palletes-neutral-variant-neutral-variant70: var(--primitive-color-neutral-variant-70);
+  --primitive-color-neutral-variant-80: #c5c6cdff;
+  --primitive-color-neutral-variant-80-rgb: 197, 198, 205;
+  --primitives-color-palletes-neutral-variant-neutral-variant80: var(--primitive-color-neutral-variant-80);
+  --primitive-color-neutral-variant-87: #d5d6dcff;
+  --primitive-color-neutral-variant-87-rgb: 213, 214, 220;
+  --primitives-color-palletes-neutral-variant-neutral-variant87: var(--primitive-color-neutral-variant-87);
+  --primitive-color-neutral-variant-90: #e1e2e8ff;
+  --primitive-color-neutral-variant-90-rgb: 225, 226, 232;
+  --primitives-color-palletes-neutral-variant-neutral-variant90: var(--primitive-color-neutral-variant-90);
+  --primitive-color-neutral-variant-92: #e4e5ebff;
+  --primitive-color-neutral-variant-92-rgb: 228, 229, 235;
+  --primitives-color-palletes-neutral-variant-neutral-variant92: var(--primitive-color-neutral-variant-92);
+  --primitive-color-neutral-variant-94: #ebecf1ff;
+  --primitive-color-neutral-variant-94-rgb: 235, 236, 241;
+  --primitives-color-palletes-neutral-variant-neutral-variant94: var(--primitive-color-neutral-variant-94);
+  --primitive-color-neutral-variant-95: #f0f1f6ff;
+  --primitive-color-neutral-variant-95-rgb: 240, 241, 246;
+  --primitives-color-palletes-neutral-variant-neutral-variant95: var(--primitive-color-neutral-variant-95);
+  --primitive-color-neutral-variant-96: #f3f4f9ff;
+  --primitive-color-neutral-variant-96-rgb: 243, 244, 249;
+  --primitives-color-palletes-neutral-variant-neutral-variant96: var(--primitive-color-neutral-variant-96);
+  --primitive-color-neutral-variant-98: #f9f9fcff;
+  --primitive-color-neutral-variant-98-rgb: 249, 249, 252;
+  --primitives-color-palletes-neutral-variant-neutral-variant98: var(--primitive-color-neutral-variant-98);
+  --primitive-color-neutral-variant-99: #fcfcffff;
+  --primitive-color-neutral-variant-99-rgb: 252, 252, 255;
+  --primitives-color-palletes-neutral-variant-neutral-variant99: var(--primitive-color-neutral-variant-99);
+  --primitive-color-neutral-variant-100: #ffffffff;
+  --primitive-color-neutral-variant-100-rgb: 255, 255, 255;
+  --primitives-color-palletes-neutral-variant-neutral-variant100: var(--primitive-color-neutral-variant-100);
+
+  /* Palette: error */
+  --primitive-color-error-0: #000000ff;
+  --primitive-color-error-0-rgb: 0, 0, 0;
+  --primitives-color-palletes-error-error0: var(--primitive-color-error-0);
+  --primitive-color-error-10: #410000ff;
+  --primitive-color-error-10-rgb: 65, 0, 0;
+  --primitives-color-palletes-error-error10: var(--primitive-color-error-10);
+  --primitive-color-error-20: #680000ff;
+  --primitive-color-error-20-rgb: 104, 0, 0;
+  --primitives-color-palletes-error-error20: var(--primitive-color-error-20);
+  --primitive-color-error-30: #930000ff;
+  --primitive-color-error-30-rgb: 147, 0, 0;
+  --primitives-color-palletes-error-error30: var(--primitive-color-error-30);
+  --primitive-color-error-40: #c00000ff;
+  --primitive-color-error-40-rgb: 192, 0, 0;
+  --primitives-color-palletes-error-error40: var(--primitive-color-error-40);
+  --primitive-color-error-50: #fe190dff;
+  --primitive-color-error-50-rgb: 254, 25, 13;
+  --primitives-color-palletes-error-error50: var(--primitive-color-error-50);
+  --primitive-color-error-60: #ff5448ff;
+  --primitive-color-error-60-rgb: 255, 84, 72;
+  --primitives-color-palletes-error-error60: var(--primitive-color-error-60);
+  --primitive-color-error-70: #ff897aff;
+  --primitive-color-error-70-rgb: 255, 137, 122;
+  --primitives-color-palletes-error-error70: var(--primitive-color-error-70);
+  --primitive-color-error-80: #ffb4a9ff;
+  --primitive-color-error-80-rgb: 255, 180, 169;
+  --primitives-color-palletes-error-error80: var(--primitive-color-error-80);
+  --primitive-color-error-90: #ffdad5ff;
+  --primitive-color-error-90-rgb: 255, 218, 213;
+  --primitives-color-palletes-error-error90: var(--primitive-color-error-90);
+  --primitive-color-error-95: #ffede9ff;
+  --primitive-color-error-95-rgb: 255, 237, 233;
+  --primitives-color-palletes-error-error95: var(--primitive-color-error-95);
+  --primitive-color-error-98: #fff8f6ff;
+  --primitive-color-error-98-rgb: 255, 248, 246;
+  --primitives-color-palletes-error-error98: var(--primitive-color-error-98);
+  --primitive-color-error-99: #fffbf9ff;
+  --primitive-color-error-99-rgb: 255, 251, 249;
+  --primitives-color-palletes-error-error99: var(--primitive-color-error-99);
+  --primitive-color-error-100: #ffffffff;
+  --primitive-color-error-100-rgb: 255, 255, 255;
+  --primitives-color-palletes-error-100: var(--primitive-color-error-100);
+
+  /* Palette: warning */
+  --primitive-color-warning-0: #000000ff;
+  --primitive-color-warning-0-rgb: 0, 0, 0;
+  --primitives-color-palletes-warning-warning0: var(--primitive-color-warning-0);
+  --primitive-color-warning-10: #2e1200ff;
+  --primitive-color-warning-10-rgb: 46, 18, 0;
+  --primitives-color-palletes-warning-warning10: var(--primitive-color-warning-10);
+  --primitive-color-warning-20: #4d2400ff;
+  --primitive-color-warning-20-rgb: 77, 36, 0;
+  --primitives-color-palletes-warning-warning20: var(--primitive-color-warning-20);
+  --primitive-color-warning-30: #6e3800ff;
+  --primitive-color-warning-30-rgb: 110, 56, 0;
+  --primitives-color-palletes-warning-warning30: var(--primitive-color-warning-30);
+  --primitive-color-warning-40: #904d00ff;
+  --primitive-color-warning-40-rgb: 144, 77, 0;
+  --primitives-color-palletes-warning-warning40: var(--primitive-color-warning-40);
+  --primitive-color-warning-50: #b66600ff;
+  --primitive-color-warning-50-rgb: 182, 102, 0;
+  --primitives-color-palletes-warning-warning50: var(--primitive-color-warning-50);
+  --primitive-color-warning-60: #db8200ff;
+  --primitive-color-warning-60-rgb: 219, 130, 0;
+  --primitives-color-palletes-warning-warning60: var(--primitive-color-warning-60);
+  --primitive-color-warning-70: #ffa500ff;
+  --primitive-color-warning-70-rgb: 255, 165, 0;
+  --primitives-color-palletes-warning-warning70: var(--primitive-color-warning-70);
+  --primitive-color-warning-80: #ffb874ff;
+  --primitive-color-warning-80-rgb: 255, 184, 116;
+  --primitives-color-palletes-warning-warning80: var(--primitive-color-warning-80);
+  --primitive-color-warning-90: #ffdcc0ff;
+  --primitive-color-warning-90-rgb: 255, 220, 192;
+  --primitives-color-palletes-warning-warning90: var(--primitive-color-warning-90);
+  --primitive-color-warning-95: #ffeee0ff;
+  --primitive-color-warning-95-rgb: 255, 238, 224;
+  --primitives-color-palletes-warning-warning95: var(--primitive-color-warning-95);
+  --primitive-color-warning-98: #fff8f3ff;
+  --primitive-color-warning-98-rgb: 255, 248, 243;
+  --primitives-color-palletes-warning-warning98: var(--primitive-color-warning-98);
+  --primitive-color-warning-99: #fffbfaff;
+  --primitive-color-warning-99-rgb: 255, 251, 250;
+  --primitives-color-palletes-warning-warning99: var(--primitive-color-warning-99);
+  --primitive-color-warning-100: #ffffffff;
+  --primitive-color-warning-100-rgb: 255, 255, 255;
+  --primitives-color-palletes-warning-100: var(--primitive-color-warning-100);
+
+  /* Palette: key colors */
+  --primitive-color-key-0: #000000ff;
+  --primitive-color-key-0-rgb: 0, 0, 0;
+  --primitives-key-colors-0: var(--primitive-color-key-0);
+  --primitive-color-key-10: #2e1200ff;
+  --primitive-color-key-10-rgb: 46, 18, 0;
+  --primitives-key-colors-10: var(--primitive-color-key-10);
+  --primitive-color-key-20: #4d2400ff;
+  --primitive-color-key-20-rgb: 77, 36, 0;
+  --primitives-key-colors-20: var(--primitive-color-key-20);
+  --primitive-color-key-30: #6e3800ff;
+  --primitive-color-key-30-rgb: 110, 56, 0;
+  --primitives-key-colors-30: var(--primitive-color-key-30);
+  --primitive-color-key-40: #904d00ff;
+  --primitive-color-key-40-rgb: 144, 77, 0;
+  --primitives-key-colors-40: var(--primitive-color-key-40);
+  --primitive-color-key-50: #b66600ff;
+  --primitive-color-key-50-rgb: 182, 102, 0;
+  --primitives-key-colors-50: var(--primitive-color-key-50);
+
+  /* ==========================================================================
+     2. COLOR ROLES (SEMANTIC TOKENS)
+     GUIDELINE: Use these variables directly in UI component styling.
+     They map semantic purpose to primitive scales via var().
+     ========================================================================== */
+  /* --- Primary Roles --- */
+  --color-primary: var(--primitive-color-primary-40);
+  --color-role-primary: var(--color-primary);
+  --color-primary-rgb: var(--primitive-color-primary-40-rgb);
+  --color-primary-container: var(--primitive-color-primary-95);
+  --color-role-primary-container: var(--color-primary-container);
+  --color-primary-container-rgb: var(--primitive-color-primary-95-rgb);
+  --color-primary-fixed: var(--primitive-color-primary-90);
+  --color-role-primary-fixed: var(--color-primary-fixed);
+  --color-primary-fixed-rgb: var(--primitive-color-primary-90-rgb);
+  --color-primary-fixed-dim: var(--primitive-color-primary-80);
+  --color-role-primary-fixed-dim: var(--color-primary-fixed-dim);
+  --color-primary-fixed-dim-rgb: var(--primitive-color-primary-80-rgb);
+
+  /* --- Secondary Roles --- */
+  --color-secondary: var(--primitive-color-secondary-40);
+  --color-role-secondary: var(--color-secondary);
+  --color-secondary-rgb: var(--primitive-color-secondary-40-rgb);
+  --color-secondary-container: var(--primitive-color-secondary-95);
+  --color-role-secondary-container: var(--color-secondary-container);
+  --color-secondary-container-rgb: var(--primitive-color-secondary-95-rgb);
+  --color-secondary-fixed: var(--primitive-color-primary-90);
+  --color-role-secondary-fixed: var(--color-secondary-fixed);
+  --color-secondary-fixed-rgb: var(--primitive-color-primary-90-rgb);
+  --color-secondary-fixed-dim: var(--primitive-color-primary-80);
+  --color-role-secondary-fixed-dim: var(--color-secondary-fixed-dim);
+  --color-secondary-fixed-dim-rgb: var(--primitive-color-primary-80-rgb);
+
+  /* --- Tertiary Roles --- */
+  --color-tertiary: var(--primitive-color-tertiary-40);
+  --color-role-tertiary: var(--color-tertiary);
+  --color-tertiary-rgb: var(--primitive-color-tertiary-40-rgb);
+  --color-tertiary-container: var(--primitive-color-tertiary-95);
+  --color-role-tertiary-container: var(--color-tertiary-container);
+  --color-tertiary-container-rgb: var(--primitive-color-tertiary-95-rgb);
+  --color-tertiary-fixed: var(--primitive-color-tertiary-90);
+  --color-role-tertiary-fixed: var(--color-tertiary-fixed);
+  --color-tertiary-fixed-rgb: var(--primitive-color-tertiary-90-rgb);
+  --color-tertiary-fixed-dim: var(--primitive-color-tertiary-80);
+  --color-role-tertiary-fixed-dim: var(--color-tertiary-fixed-dim);
+  --color-tertiary-fixed-dim-rgb: var(--primitive-color-tertiary-80-rgb);
+
+  /* --- Surface & Background Roles --- */
+  --color-surface: var(--primitive-color-neutral-98);
+  --color-role-surface: var(--color-surface);
+  --color-surface-rgb: var(--primitive-color-neutral-98-rgb);
+  --color-surface-variant: var(--primitive-color-neutral-variant-90);
+  --color-role-surface-variant: var(--color-surface-variant);
+  --color-surface-variant-rgb: var(--primitive-color-neutral-variant-90-rgb);
+  --color-surface-container-highest: var(--primitive-color-neutral-variant-90);
+  --color-role-surface-container-highest: var(--color-surface-container-highest);
+  --color-surface-container-highest-rgb: var(--primitive-color-neutral-variant-90-rgb);
+  --color-surface-container-high: var(--primitive-color-neutral-92);
+  --color-role-surface-container-high: var(--color-surface-container-high);
+  --color-surface-container-high-rgb: var(--primitive-color-neutral-92-rgb);
+  --color-surface-container: var(--primitive-color-neutral-variant-94);
+  --color-role-surface-container: var(--color-surface-container);
+  --color-surface-container-rgb: var(--primitive-color-neutral-variant-94-rgb);
+  --color-inverse-surface: var(--primitive-color-neutral-20);
+  --color-role-inverse-surface: var(--color-inverse-surface);
+  --color-inverse-surface-rgb: var(--primitive-color-neutral-20-rgb);
+  --color-surface-container-low: var(--primitive-color-neutral-96);
+  --color-role-surface-container-low: var(--color-surface-container-low);
+  --color-surface-container-low-rgb: var(--primitive-color-neutral-96-rgb);
+  --color-surface-container-lowest: var(--primitive-color-neutral-100);
+  --color-role-surface-container-lowest: var(--color-surface-container-lowest);
+  --color-surface-container-lowest-rgb: var(--primitive-color-neutral-100-rgb);
+  --color-surface-tint: var(--primitive-color-primary-40);
+  --color-role-surface-tint: var(--color-surface-tint);
+  --color-surface-tint-rgb: var(--primitive-color-primary-40-rgb);
+  --color-surface-tint-color: var(--primitive-color-primary-40);
+  --color-role-surface-tint-color: var(--color-surface-tint-color);
+  --color-surface-tint-color-rgb: var(--primitive-color-primary-40-rgb);
+  --color-inverse-on-surface: var(--primitive-color-neutral-variant-95);
+  --color-role-inverse-on-surface: var(--color-inverse-on-surface);
+  --color-inverse-on-surface-rgb: var(--primitive-color-neutral-variant-95-rgb);
+  --color-inverse-primary: var(--primitive-color-primary-80);
+  --color-role-inverse-primary: var(--color-inverse-primary);
+  --color-inverse-primary-rgb: var(--primitive-color-primary-80-rgb);
+  --color-background: var(--primitive-color-neutral-98);
+  --color-role-background: var(--color-background);
+  --color-background-rgb: var(--primitive-color-neutral-98-rgb);
+  --color-surface-bright: var(--primitive-color-neutral-98);
+  --color-role-surface-bright: var(--color-surface-bright);
+  --color-surface-bright-rgb: var(--primitive-color-neutral-98-rgb);
+  --color-surface-dim: var(--primitive-color-neutral-87);
+  --color-role-surface-dim: var(--color-surface-dim);
+  --color-surface-dim-rgb: var(--primitive-color-neutral-87-rgb);
+
+  /* --- Outline Roles --- */
+  --color-outline: var(--primitive-color-neutral-variant-60);
+  --color-role-outline: var(--color-outline);
+  --color-outline-rgb: var(--primitive-color-neutral-variant-60-rgb);
+  --color-outline-variant: var(--primitive-color-neutral-variant-90);
+  --color-role-outline-variant: var(--color-outline-variant);
+  --color-outline-variant-rgb: var(--primitive-color-neutral-variant-90-rgb);
+
+  /* --- Error Roles --- */
+  --color-on-error-container: var(--primitive-color-error-30);
+  --color-role-on-error-container: var(--color-on-error-container);
+  --color-on-error-container-rgb: var(--primitive-color-error-30-rgb);
+  --color-error: var(--primitive-color-error-40);
+  --color-role-error: var(--color-error);
+  --color-error-rgb: var(--primitive-color-error-40-rgb);
+  --color-on-error: var(--primitive-color-error-100);
+  --color-role-on-error: var(--color-on-error);
+  --color-on-error-rgb: var(--primitive-color-error-100-rgb);
+  --color-error-container: var(--primitive-color-error-95);
+  --color-role-error-container: var(--color-error-container);
+  --color-error-container-rgb: var(--primitive-color-error-95-rgb);
+
+  /* --- Scrim & Shadow Roles --- */
+  --color-scrim: var(--primitive-color-neutral-0);
+  --color-role-scrim: var(--color-scrim);
+  --color-scrim-rgb: var(--primitive-color-neutral-0-rgb);
+  --color-shadow: var(--primitive-color-neutral-0);
+  --color-role-shadow: var(--color-shadow);
+  --color-shadow-rgb: var(--primitive-color-neutral-0-rgb);
+
+  /* --- Other Roles --- */
+  --color-on-primary: var(--primitive-color-primary-100);
+  --color-role-on-primary: var(--color-on-primary);
+  --color-on-primary-rgb: var(--primitive-color-primary-100-rgb);
+  --color-on-primary-container: var(--primitive-color-primary-30);
+  --color-role-on-primary-container: var(--color-on-primary-container);
+  --color-on-primary-container-rgb: var(--primitive-color-primary-30-rgb);
+  --color-on-secondary: var(--primitive-color-secondary-100);
+  --color-role-on-secondary: var(--color-on-secondary);
+  --color-on-secondary-rgb: var(--primitive-color-secondary-100-rgb);
+  --color-on-secondary-container: var(--primitive-color-secondary-30);
+  --color-role-on-secondary-container: var(--color-on-secondary-container);
+  --color-on-secondary-container-rgb: var(--primitive-color-secondary-30-rgb);
+  --color-on-tertiary: var(--primitive-color-tertiary-100);
+  --color-role-on-tertiary: var(--color-on-tertiary);
+  --color-on-tertiary-rgb: var(--primitive-color-tertiary-100-rgb);
+  --color-on-tertiary-container: var(--primitive-color-tertiary-30);
+  --color-role-on-tertiary-container: var(--color-on-tertiary-container);
+  --color-on-tertiary-container-rgb: var(--primitive-color-tertiary-30-rgb);
+  --color-on-surface: var(--primitive-color-neutral-10);
+  --color-role-on-surface: var(--color-on-surface);
+  --color-on-surface-rgb: var(--primitive-color-neutral-10-rgb);
+  --color-on-surface-variant: var(--primitive-color-neutral-variant-30);
+  --color-role-on-surface-variant: var(--color-on-surface-variant);
+  --color-on-surface-variant-rgb: var(--primitive-color-neutral-variant-30-rgb);
+  --color-on-primary-fixed: var(--primitive-color-primary-10);
+  --color-role-on-primary-fixed: var(--color-on-primary-fixed);
+  --color-on-primary-fixed-rgb: var(--primitive-color-primary-10-rgb);
+  --color-on-primary-fixed-dim-variant: var(--primitive-color-primary-30);
+  --color-role-on-primary-fixed-dim-variant: var(--color-on-primary-fixed-dim-variant);
+  --color-on-primary-fixed-dim-variant-rgb: var(--primitive-color-primary-30-rgb);
+  --color-on-secondary-fixed: var(--primitive-color-primary-10);
+  --color-role-on-secondary-fixed: var(--color-on-secondary-fixed);
+  --color-on-secondary-fixed-rgb: var(--primitive-color-primary-10-rgb);
+  --color-on-secondary-fixed-variant: var(--primitive-color-primary-30);
+  --color-role-on-secondary-fixed-variant: var(--color-on-secondary-fixed-variant);
+  --color-on-secondary-fixed-variant-rgb: var(--primitive-color-primary-30-rgb);
+  --color-on-tertiary-fixed: var(--primitive-color-tertiary-10);
+  --color-role-on-tertiary-fixed: var(--color-on-tertiary-fixed);
+  --color-on-tertiary-fixed-rgb: var(--primitive-color-tertiary-10-rgb);
+  --color-on-tertiary-fixed-variant: var(--primitive-color-primary-30);
+  --color-role-on-tertiary-fixed-variant: var(--color-on-tertiary-fixed-variant);
+  --color-on-tertiary-fixed-variant-rgb: var(--primitive-color-primary-30-rgb);
+  --color-on-background: var(--primitive-color-primary-10);
+  --color-role-on-background: var(--color-on-background);
+  --color-on-background-rgb: var(--primitive-color-primary-10-rgb);
+
+  /* ==========================================================================
+     3. TYPOGRAPHY TOKENS
+     ========================================================================== */
+  --font-family-base: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* display large */
+  --typography-display-large-font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --typography-display-large-font-size: 64px;
+  --typography-display-large-font-weight: 600;
+  --typography-display-large-line-height: 96px;
+  --typography-display-large-letter-spacing: 0px;
+  --typography-display-large: 600 64px/96px 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* display medium */
+  --typography-display-medium-font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --typography-display-medium-font-size: 50px;
+  --typography-display-medium-font-weight: 600;
+  --typography-display-medium-line-height: 75px;
+  --typography-display-medium-letter-spacing: -3px;
+  --typography-display-medium: 600 50px/75px 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* display small */
+  --typography-display-small-font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --typography-display-small-font-size: 40px;
+  --typography-display-small-font-weight: 600;
+  --typography-display-small-line-height: 60px;
+  --typography-display-small-letter-spacing: -2px;
+  --typography-display-small: 600 40px/60px 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* headline large */
+  --typography-headline-large-font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --typography-headline-large-font-size: 32px;
+  --typography-headline-large-font-weight: 500;
+  --typography-headline-large-line-height: 48px;
+  --typography-headline-large-letter-spacing: -0.5px;
+  --typography-headline-large: 500 32px/48px 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* headline medium */
+  --typography-headline-medium-font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --typography-headline-medium-font-size: 24px;
+  --typography-headline-medium-font-weight: 500;
+  --typography-headline-medium-line-height: 36px;
+  --typography-headline-medium-letter-spacing: -1.45px;
+  --typography-headline-medium: 500 24px/36px 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* title large */
+  --typography-title-large-font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --typography-title-large-font-size: 22px;
+  --typography-title-large-font-weight: 500;
+  --typography-title-large-line-height: 33px;
+  --typography-title-large-letter-spacing: -1px;
+  --typography-title-large: 500 22px/33px 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* title medium */
+  --typography-title-medium-font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --typography-title-medium-font-size: 14px;
+  --typography-title-medium-font-weight: 500;
+  --typography-title-medium-line-height: 21px;
+  --typography-title-medium-letter-spacing: -0.9px;
+  --typography-title-medium: 500 14px/21px 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* body large */
+  --typography-body-large-font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --typography-body-large-font-size: 16px;
+  --typography-body-large-font-weight: 500;
+  --typography-body-large-line-height: 24px;
+  --typography-body-large-letter-spacing: -0.95px;
+  --typography-body-large: 500 16px/24px 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* body medium */
+  --typography-body-medium-font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --typography-body-medium-font-size: 14px;
+  --typography-body-medium-font-weight: 500;
+  --typography-body-medium-line-height: 24px;
+  --typography-body-medium-letter-spacing: -0.85px;
+  --typography-body-medium: 500 14px/24px 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* body small */
+  --typography-body-small-font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --typography-body-small-font-size: 12px;
+  --typography-body-small-font-weight: 500;
+  --typography-body-small-line-height: 18px;
+  --typography-body-small-letter-spacing: -0.4px;
+  --typography-body-small: 500 12px/18px 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* label large */
+  --typography-label-large-font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --typography-label-large-font-size: 14px;
+  --typography-label-large-font-weight: 500;
+  --typography-label-large-line-height: 21px;
+  --typography-label-large-letter-spacing: -0.85px;
+  --typography-label-large: 500 14px/21px 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* label medium */
+  --typography-label-medium-font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --typography-label-medium-font-size: 12px;
+  --typography-label-medium-font-weight: 500;
+  --typography-label-medium-line-height: 18px;
+  --typography-label-medium-letter-spacing: -0.85px;
+  --typography-label-medium: 500 12px/18px 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --typography-lebel-medium: var(--typography-label-medium);
+
+  /* label small */
+  --typography-label-small-font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --typography-label-small-font-size: 11px;
+  --typography-label-small-font-weight: 500;
+  --typography-label-small-line-height: 16.5px;
+  --typography-label-small-letter-spacing: -0.4px;
+  --typography-label-small: 500 11px/16.5px 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* ==========================================================================
+     4. ELEVATION & SHADOW TOKENS
+     ========================================================================== */
+  --effect-soft-shadow: 1.5px 6px 30px 0px #0044e31f;
+  --effect-medium-shadow: 4px 6px 24px 0px #0044e32e;
+  --effect-hard-shadow: 6px 10px 20px 0px #0044e333;
+
+}
+
+/* ==========================================================================
+   5. UI UTILITY CLASSES (STRICTLY USE COLOR ROLES & TYPOGRAPHY)
+   ========================================================================== */
+/* Typography Utilities */
+.text-display-large, .type-display-large {
+  font-family: var(--typography-display-large-font-family);
+  font-size: var(--typography-display-large-font-size);
+  font-weight: var(--typography-display-large-font-weight);
+  line-height: var(--typography-display-large-line-height);
+  letter-spacing: var(--typography-display-large-letter-spacing);
+}
+
+.text-display-medium, .type-display-medium {
+  font-family: var(--typography-display-medium-font-family);
+  font-size: var(--typography-display-medium-font-size);
+  font-weight: var(--typography-display-medium-font-weight);
+  line-height: var(--typography-display-medium-line-height);
+  letter-spacing: var(--typography-display-medium-letter-spacing);
+}
+
+.text-display-small, .type-display-small {
+  font-family: var(--typography-display-small-font-family);
+  font-size: var(--typography-display-small-font-size);
+  font-weight: var(--typography-display-small-font-weight);
+  line-height: var(--typography-display-small-line-height);
+  letter-spacing: var(--typography-display-small-letter-spacing);
+}
+
+.text-headline-large, .type-headline-large {
+  font-family: var(--typography-headline-large-font-family);
+  font-size: var(--typography-headline-large-font-size);
+  font-weight: var(--typography-headline-large-font-weight);
+  line-height: var(--typography-headline-large-line-height);
+  letter-spacing: var(--typography-headline-large-letter-spacing);
+}
+
+.text-headline-medium, .type-headline-medium {
+  font-family: var(--typography-headline-medium-font-family);
+  font-size: var(--typography-headline-medium-font-size);
+  font-weight: var(--typography-headline-medium-font-weight);
+  line-height: var(--typography-headline-medium-line-height);
+  letter-spacing: var(--typography-headline-medium-letter-spacing);
+}
+
+.text-title-large, .type-title-large {
+  font-family: var(--typography-title-large-font-family);
+  font-size: var(--typography-title-large-font-size);
+  font-weight: var(--typography-title-large-font-weight);
+  line-height: var(--typography-title-large-line-height);
+  letter-spacing: var(--typography-title-large-letter-spacing);
+}
+
+.text-title-medium, .type-title-medium {
+  font-family: var(--typography-title-medium-font-family);
+  font-size: var(--typography-title-medium-font-size);
+  font-weight: var(--typography-title-medium-font-weight);
+  line-height: var(--typography-title-medium-line-height);
+  letter-spacing: var(--typography-title-medium-letter-spacing);
+}
+
+.text-body-large, .type-body-large {
+  font-family: var(--typography-body-large-font-family);
+  font-size: var(--typography-body-large-font-size);
+  font-weight: var(--typography-body-large-font-weight);
+  line-height: var(--typography-body-large-line-height);
+  letter-spacing: var(--typography-body-large-letter-spacing);
+}
+
+.text-body-medium, .type-body-medium {
+  font-family: var(--typography-body-medium-font-family);
+  font-size: var(--typography-body-medium-font-size);
+  font-weight: var(--typography-body-medium-font-weight);
+  line-height: var(--typography-body-medium-line-height);
+  letter-spacing: var(--typography-body-medium-letter-spacing);
+}
+
+.text-body-small, .type-body-small {
+  font-family: var(--typography-body-small-font-family);
+  font-size: var(--typography-body-small-font-size);
+  font-weight: var(--typography-body-small-font-weight);
+  line-height: var(--typography-body-small-line-height);
+  letter-spacing: var(--typography-body-small-letter-spacing);
+}
+
+.text-label-large, .type-label-large {
+  font-family: var(--typography-label-large-font-family);
+  font-size: var(--typography-label-large-font-size);
+  font-weight: var(--typography-label-large-font-weight);
+  line-height: var(--typography-label-large-line-height);
+  letter-spacing: var(--typography-label-large-letter-spacing);
+}
+
+.text-label-medium, .type-label-medium {
+  font-family: var(--typography-label-medium-font-family);
+  font-size: var(--typography-label-medium-font-size);
+  font-weight: var(--typography-label-medium-font-weight);
+  line-height: var(--typography-label-medium-line-height);
+  letter-spacing: var(--typography-label-medium-letter-spacing);
+}
+
+.text-label-small, .type-label-small {
+  font-family: var(--typography-label-small-font-family);
+  font-size: var(--typography-label-small-font-size);
+  font-weight: var(--typography-label-small-font-weight);
+  line-height: var(--typography-label-small-line-height);
+  letter-spacing: var(--typography-label-small-letter-spacing);
+}
+
+/* Elevation / Shadow Utilities */
+.shadow-soft-shadow {
+  box-shadow: var(--effect-soft-shadow);
+}
+
+.shadow-medium-shadow {
+  box-shadow: var(--effect-medium-shadow);
+}
+
+.shadow-hard-shadow {
+  box-shadow: var(--effect-hard-shadow);
+}
+
+/* Color Role Utilities (Semantic Backgrounds & Texts) */
+.bg-primary { background-color: var(--color-primary); }
+.text-primary { color: var(--color-primary); }
+.border-primary { border-color: var(--color-primary); }
+.bg-on-primary { background-color: var(--color-on-primary); }
+.text-on-primary { color: var(--color-on-primary); }
+.border-on-primary { border-color: var(--color-on-primary); }
+.bg-primary-container { background-color: var(--color-primary-container); }
+.text-primary-container { color: var(--color-primary-container); }
+.border-primary-container { border-color: var(--color-primary-container); }
+.bg-on-primary-container { background-color: var(--color-on-primary-container); }
+.text-on-primary-container { color: var(--color-on-primary-container); }
+.border-on-primary-container { border-color: var(--color-on-primary-container); }
+.bg-secondary { background-color: var(--color-secondary); }
+.text-secondary { color: var(--color-secondary); }
+.border-secondary { border-color: var(--color-secondary); }
+.bg-on-secondary { background-color: var(--color-on-secondary); }
+.text-on-secondary { color: var(--color-on-secondary); }
+.border-on-secondary { border-color: var(--color-on-secondary); }
+.bg-secondary-container { background-color: var(--color-secondary-container); }
+.text-secondary-container { color: var(--color-secondary-container); }
+.border-secondary-container { border-color: var(--color-secondary-container); }
+.bg-on-secondary-container { background-color: var(--color-on-secondary-container); }
+.text-on-secondary-container { color: var(--color-on-secondary-container); }
+.border-on-secondary-container { border-color: var(--color-on-secondary-container); }
+.bg-tertiary { background-color: var(--color-tertiary); }
+.text-tertiary { color: var(--color-tertiary); }
+.border-tertiary { border-color: var(--color-tertiary); }
+.bg-on-error-container { background-color: var(--color-on-error-container); }
+.text-on-error-container { color: var(--color-on-error-container); }
+.border-on-error-container { border-color: var(--color-on-error-container); }
+.bg-surface { background-color: var(--color-surface); }
+.text-surface { color: var(--color-surface); }
+.border-surface { border-color: var(--color-surface); }
+.bg-tertiary-container { background-color: var(--color-tertiary-container); }
+.text-tertiary-container { color: var(--color-tertiary-container); }
+.border-tertiary-container { border-color: var(--color-tertiary-container); }
+.bg-on-tertiary { background-color: var(--color-on-tertiary); }
+.text-on-tertiary { color: var(--color-on-tertiary); }
+.border-on-tertiary { border-color: var(--color-on-tertiary); }
+.bg-on-tertiary-container { background-color: var(--color-on-tertiary-container); }
+.text-on-tertiary-container { color: var(--color-on-tertiary-container); }
+.border-on-tertiary-container { border-color: var(--color-on-tertiary-container); }
+.bg-error { background-color: var(--color-error); }
+.text-error { color: var(--color-error); }
+.border-error { border-color: var(--color-error); }
+.bg-on-error { background-color: var(--color-on-error); }
+.text-on-error { color: var(--color-on-error); }
+.border-on-error { border-color: var(--color-on-error); }
+.bg-error-container { background-color: var(--color-error-container); }
+.text-error-container { color: var(--color-error-container); }
+.border-error-container { border-color: var(--color-error-container); }
+.bg-on-surface { background-color: var(--color-on-surface); }
+.text-on-surface { color: var(--color-on-surface); }
+.border-on-surface { border-color: var(--color-on-surface); }
+.bg-surface-variant { background-color: var(--color-surface-variant); }
+.text-surface-variant { color: var(--color-surface-variant); }
+.border-surface-variant { border-color: var(--color-surface-variant); }
+.bg-on-surface-variant { background-color: var(--color-on-surface-variant); }
+.text-on-surface-variant { color: var(--color-on-surface-variant); }
+.border-on-surface-variant { border-color: var(--color-on-surface-variant); }
+.bg-surface-container-highest { background-color: var(--color-surface-container-highest); }
+.text-surface-container-highest { color: var(--color-surface-container-highest); }
+.border-surface-container-highest { border-color: var(--color-surface-container-highest); }
+.bg-outline { background-color: var(--color-outline); }
+.text-outline { color: var(--color-outline); }
+.border-outline { border-color: var(--color-outline); }
+.bg-outline-variant { background-color: var(--color-outline-variant); }
+.text-outline-variant { color: var(--color-outline-variant); }
+.border-outline-variant { border-color: var(--color-outline-variant); }
+.bg-primary-fixed { background-color: var(--color-primary-fixed); }
+.text-primary-fixed { color: var(--color-primary-fixed); }
+.border-primary-fixed { border-color: var(--color-primary-fixed); }
+.bg-surface-container-high { background-color: var(--color-surface-container-high); }
+.text-surface-container-high { color: var(--color-surface-container-high); }
+.border-surface-container-high { border-color: var(--color-surface-container-high); }
+.bg-surface-container { background-color: var(--color-surface-container); }
+.text-surface-container { color: var(--color-surface-container); }
+.border-surface-container { border-color: var(--color-surface-container); }
+.bg-inverse-surface { background-color: var(--color-inverse-surface); }
+.text-inverse-surface { color: var(--color-inverse-surface); }
+.border-inverse-surface { border-color: var(--color-inverse-surface); }
+.bg-surface-container-low { background-color: var(--color-surface-container-low); }
+.text-surface-container-low { color: var(--color-surface-container-low); }
+.border-surface-container-low { border-color: var(--color-surface-container-low); }
+.bg-surface-container-lowest { background-color: var(--color-surface-container-lowest); }
+.text-surface-container-lowest { color: var(--color-surface-container-lowest); }
+.border-surface-container-lowest { border-color: var(--color-surface-container-lowest); }
+.bg-surface-tint { background-color: var(--color-surface-tint); }
+.text-surface-tint { color: var(--color-surface-tint); }
+.border-surface-tint { border-color: var(--color-surface-tint); }
+.bg-surface-tint-color { background-color: var(--color-surface-tint-color); }
+.text-surface-tint-color { color: var(--color-surface-tint-color); }
+.border-surface-tint-color { border-color: var(--color-surface-tint-color); }
+.bg-inverse-on-surface { background-color: var(--color-inverse-on-surface); }
+.text-inverse-on-surface { color: var(--color-inverse-on-surface); }
+.border-inverse-on-surface { border-color: var(--color-inverse-on-surface); }
+.bg-on-primary-fixed { background-color: var(--color-on-primary-fixed); }
+.text-on-primary-fixed { color: var(--color-on-primary-fixed); }
+.border-on-primary-fixed { border-color: var(--color-on-primary-fixed); }
+.bg-primary-fixed-dim { background-color: var(--color-primary-fixed-dim); }
+.text-primary-fixed-dim { color: var(--color-primary-fixed-dim); }
+.border-primary-fixed-dim { border-color: var(--color-primary-fixed-dim); }
+.bg-on-primary-fixed-dim-variant { background-color: var(--color-on-primary-fixed-dim-variant); }
+.text-on-primary-fixed-dim-variant { color: var(--color-on-primary-fixed-dim-variant); }
+.border-on-primary-fixed-dim-variant { border-color: var(--color-on-primary-fixed-dim-variant); }
+.bg-inverse-primary { background-color: var(--color-inverse-primary); }
+.text-inverse-primary { color: var(--color-inverse-primary); }
+.border-inverse-primary { border-color: var(--color-inverse-primary); }
+.bg-secondary-fixed { background-color: var(--color-secondary-fixed); }
+.text-secondary-fixed { color: var(--color-secondary-fixed); }
+.border-secondary-fixed { border-color: var(--color-secondary-fixed); }
+.bg-on-secondary-fixed { background-color: var(--color-on-secondary-fixed); }
+.text-on-secondary-fixed { color: var(--color-on-secondary-fixed); }
+.border-on-secondary-fixed { border-color: var(--color-on-secondary-fixed); }
+.bg-secondary-fixed-dim { background-color: var(--color-secondary-fixed-dim); }
+.text-secondary-fixed-dim { color: var(--color-secondary-fixed-dim); }
+.border-secondary-fixed-dim { border-color: var(--color-secondary-fixed-dim); }
+.bg-on-secondary-fixed-variant { background-color: var(--color-on-secondary-fixed-variant); }
+.text-on-secondary-fixed-variant { color: var(--color-on-secondary-fixed-variant); }
+.border-on-secondary-fixed-variant { border-color: var(--color-on-secondary-fixed-variant); }
+.bg-tertiary-fixed { background-color: var(--color-tertiary-fixed); }
+.text-tertiary-fixed { color: var(--color-tertiary-fixed); }
+.border-tertiary-fixed { border-color: var(--color-tertiary-fixed); }
+.bg-on-tertiary-fixed { background-color: var(--color-on-tertiary-fixed); }
+.text-on-tertiary-fixed { color: var(--color-on-tertiary-fixed); }
+.border-on-tertiary-fixed { border-color: var(--color-on-tertiary-fixed); }
+.bg-tertiary-fixed-dim { background-color: var(--color-tertiary-fixed-dim); }
+.text-tertiary-fixed-dim { color: var(--color-tertiary-fixed-dim); }
+.border-tertiary-fixed-dim { border-color: var(--color-tertiary-fixed-dim); }
+.bg-on-tertiary-fixed-variant { background-color: var(--color-on-tertiary-fixed-variant); }
+.text-on-tertiary-fixed-variant { color: var(--color-on-tertiary-fixed-variant); }
+.border-on-tertiary-fixed-variant { border-color: var(--color-on-tertiary-fixed-variant); }
+.bg-background { background-color: var(--color-background); }
+.text-background { color: var(--color-background); }
+.border-background { border-color: var(--color-background); }
+.bg-on-background { background-color: var(--color-on-background); }
+.text-on-background { color: var(--color-on-background); }
+.border-on-background { border-color: var(--color-on-background); }
+.bg-surface-bright { background-color: var(--color-surface-bright); }
+.text-surface-bright { color: var(--color-surface-bright); }
+.border-surface-bright { border-color: var(--color-surface-bright); }
+.bg-surface-dim { background-color: var(--color-surface-dim); }
+.text-surface-dim { color: var(--color-surface-dim); }
+.border-surface-dim { border-color: var(--color-surface-dim); }
+.bg-scrim { background-color: var(--color-scrim); }
+.text-scrim { color: var(--color-scrim); }
+.border-scrim { border-color: var(--color-scrim); }
+.bg-shadow { background-color: var(--color-shadow); }
+.text-shadow { color: var(--color-shadow); }
+.border-shadow { border-color: var(--color-shadow); }
+
