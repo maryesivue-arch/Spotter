@@ -2,9 +2,17 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Spotter',
-  description: 'A gym member app',
+  title: {
+    default: 'Spotter',
+    template: '%s | Spotter',
+  },
+  description: 'Verified gym member app',
   manifest: '/manifest.webmanifest',
+  icons: {
+    icon: '/icon.svg',
+    shortcut: '/icon.svg',
+    apple: '/icon.svg',
+  },
 };
 
 export const viewport: Viewport = {

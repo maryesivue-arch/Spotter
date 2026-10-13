@@ -1,4 +1,58 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Spotter — Everything on record. Nothing guessed.',
+  description: 'Verified gym member app',
+  keywords: [
+    'Spotter',
+    'gym member app',
+    'gym check-in Lagos',
+    'gym timetable',
+    'attendance ledger',
+    'Nigeria gym PWA',
+  ],
+  authors: [{ name: 'Spotter' }],
+  creator: 'Spotter',
+  publisher: 'Spotter',
+  alternates: {
+    canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  openGraph: {
+    title: 'Spotter — Everything on record. Nothing guessed.',
+    description: 'Verified gym member app',
+    url: '/',
+    siteName: 'Spotter',
+    locale: 'en_NG',
+    type: 'website',
+    images: [
+      {
+        url: '/icon.svg',
+        width: 512,
+        height: 512,
+        alt: 'Spotter Logo',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Spotter — Everything on record. Nothing guessed.',
+    description: 'Verified gym member app',
+    images: ['/icon.svg'],
+  },
+};
 
 export default function MarketingPage() {
   return (
