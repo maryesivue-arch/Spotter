@@ -51,7 +51,7 @@ body {
 }
 
 .btn-primary:hover {
-  background-color: var(--color-primary-fixed-dim);
+  background-color: var(--color-on-primary-fixed-dim-variant);
   box-shadow: var(--effect-medium-shadow);
 }
 
@@ -73,6 +73,21 @@ body {
 .btn-outline:hover {
   background-color: var(--color-primary-container);
   border-color: var(--color-primary);
+}
+
+.legal-link {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.legal-link:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
 }
 
 /* Surface Cards */
@@ -166,3 +181,159 @@ body {
   padding-left: 20px;
   padding-right: 20px;
 }
+
+/* Header nav (responsive) */
+.header-login-desktop {
+  display: none;
+}
+
+.header-menu-toggle {
+  display: inline-flex;
+}
+
+.header-slider {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px;
+  min-width: 240px;
+  background-color: var(--color-surface-container-lowest);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: 12px;
+  box-shadow: var(--effect-soft-shadow);
+  transform: translateX(120%);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, visibility 0s linear 0.25s;
+}
+
+.header-slider-open {
+  transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, visibility 0s;
+}
+
+@media (min-width: 768px) {
+  .header-login-desktop {
+    display: inline-flex;
+  }
+
+  .header-menu-toggle {
+    display: none;
+  }
+
+  .header-slider {
+    display: none;
+  }
+}
+
+/* Bento Grid Layout */
+.bento-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 640px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .bento-col-span-2 {
+    grid-column: span 2;
+  }
+
+  .bento-col-span-1 {
+    grid-column: span 1;
+  }
+}
+
+.bento-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--color-surface-container-lowest);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: 20px;
+  padding: 32px 28px;
+  box-shadow: var(--effect-soft-shadow);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+}
+
+.bento-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--effect-medium-shadow);
+  transform: translateY(-3px);
+}
+
+/* Privacy & Trust Alternating Feature Rows */
+.privacy-row {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--color-outline-variant);
+}
+
+.privacy-row:last-child {
+  border-bottom: none;
+}
+
+@media (min-width: 840px) {
+  .privacy-row {
+    flex-direction: row;
+    gap: 56px;
+    align-items: center;
+  }
+
+  .privacy-row-reverse {
+    flex-direction: row-reverse;
+  }
+}
+
+.privacy-content {
+  flex: 1;
+  width: 100%;
+}
+
+.privacy-visual {
+  flex: 1;
+  width: 100%;
+}
+
+.privacy-visual-card {
+  background-color: var(--color-surface-container-lowest);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: var(--effect-soft-shadow);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.privacy-visual-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--effect-medium-shadow);
+  transform: translateY(-2px);
+}
+
+

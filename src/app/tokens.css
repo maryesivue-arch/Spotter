@@ -445,12 +445,12 @@
   --color-secondary-container: var(--primitive-color-secondary-95);
   --color-role-secondary-container: var(--color-secondary-container);
   --color-secondary-container-rgb: var(--primitive-color-secondary-95-rgb);
-  --color-secondary-fixed: var(--primitive-color-primary-90);
+  --color-secondary-fixed: var(--primitive-color-secondary-90);
   --color-role-secondary-fixed: var(--color-secondary-fixed);
-  --color-secondary-fixed-rgb: var(--primitive-color-primary-90-rgb);
-  --color-secondary-fixed-dim: var(--primitive-color-primary-80);
+  --color-secondary-fixed-rgb: var(--primitive-color-secondary-90-rgb);
+  --color-secondary-fixed-dim: var(--primitive-color-secondary-80);
   --color-role-secondary-fixed-dim: var(--color-secondary-fixed-dim);
-  --color-secondary-fixed-dim-rgb: var(--primitive-color-primary-80-rgb);
+  --color-secondary-fixed-dim-rgb: var(--primitive-color-secondary-80-rgb);
 
   /* --- Tertiary Roles --- */
   --color-tertiary: var(--primitive-color-tertiary-40);

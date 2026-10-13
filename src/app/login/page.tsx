@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { LegalViewer } from '@/lib/legal-viewer';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -417,8 +418,26 @@ export default function LoginPage() {
       </main>
 
       {/* Footer */}
-      <footer style={{ textAlign: 'center', padding: '16px', fontSize: '12px', color: 'var(--color-outline)' }}>
-        Spotter Gym PWA • Approved Cards & Private Member Records
+      <footer style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', padding: '16px', fontSize: '12px', color: 'var(--color-outline)' }}>
+        <svg width="24" height="24" viewBox="0 0 32 32" role="img" aria-label="Spotter logo">
+          <rect width="32" height="32" rx="8" fill="#0044e3" />
+          <text
+            x="50%"
+            y="54%"
+            fill="#ffffff"
+            fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+            fontWeight="800"
+            fontSize="20"
+            textAnchor="middle"
+            dominantBaseline="middle"
+          >
+            S
+          </text>
+        </svg>
+        <span>Spotter Gym PWA • Approved Cards & Private Member Records</span>
+        <div style={{ display: 'flex', gap: '12px' }}>
+          <LegalViewer linkStyle={{ color: 'var(--color-outline)' }} />
+        </div>
       </footer>
     </div>
   );
